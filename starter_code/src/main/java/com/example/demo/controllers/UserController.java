@@ -5,6 +5,10 @@ import com.example.demo.model.persistence.User;
 import com.example.demo.model.persistence.repositories.CartRepository;
 import com.example.demo.model.persistence.repositories.UserRepository;
 import com.example.demo.model.requests.CreateUserRequest;
+import com.example.demo.security.AuthenticationUtil;
+
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,17 +38,29 @@ public class UserController {
     private PasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id) {
+    public ResponseEntity<User> findById(@PathVariable Long id, Authentication authentication) {
         log.info("Attempting to find user by ID: {}", id);
-        return userRepository.findById(id)
-                .map(user -> {
-                    log.info("Successfully retrieved user ID: {}", id);
-                    return ResponseEntity.ok(user);
-                })
-                .orElseGet(() -> {
-                    log.warn("User ID {} not found.", id);
-                    return ResponseEntity.notFound().build();
-                });
+
+        Optional<User> user = userRepository.findById(id);
+
+        if (user.isPresent()) {
+            log.info("Successfully retrieved user ID: {}", id);
+
+            // Authorization check
+            if (!AuthenticationUtil.isAuthorized(user.get().getUsername(), authentication)) {
+                log.warn("findById failed: User {} not authorized to read user with id {}.", authentication.getName(), id);
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            }
+            else {
+                return ResponseEntity.ok(user.get());
+            }
+        }
+        else {
+            log.warn("User with ID {} not found.", id);
+            return ResponseEntity.notFound().build();
+        }
+
+
     }
 
     @GetMapping("/{username}")
