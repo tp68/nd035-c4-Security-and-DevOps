@@ -75,7 +75,7 @@ public class CartControllerTest {
         when(userRepo.findByUsername("testUser")).thenReturn(testUser);
         when(userRepo.findByUsername("nonExistentUser")).thenReturn(null);
         when(itemRepo.findById(1L)).thenReturn(Optional.of(testItem));
-        when(itemRepo.findById(99L)).thenReturn(Optional.empty());        
+        when(itemRepo.findById(99L)).thenReturn(Optional.empty());
     }
 
     // --- addToCart Tests ---
