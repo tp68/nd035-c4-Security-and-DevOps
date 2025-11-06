@@ -10,12 +10,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("/api/user")
+@EnableMethodSecurity 
 public class UserController {
 
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -44,7 +48,9 @@ public class UserController {
     }
 
     @GetMapping("/{username}")
+    @PreAuthorize("isAuthenticated() and (#username == authentication.name or hasRole('ROLE_ADMIN'))")
     public ResponseEntity<User> findByUserName(@PathVariable String username) {
+
         log.info("Attempting to find user by username: {}", username);
         User user = userRepository.findByUsername(username);
         if (user == null) {
@@ -62,6 +68,12 @@ public class UserController {
         String username = createUserRequest.getUsername();
         log.info("Attempting to create new user: {}", username);
 
+        if (userRepository.findByUsername(username) != null) {
+            log.warn("Attempt to create duplicate user: {}", username);
+            // 409 Conflict: The requested username is already in use.
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(null); 
+        }
+
         String password = createUserRequest.getPassword();
 		if (!password.equals(createUserRequest.getConfirmPassword())) {
             log.warn("Failed user creation for {}: Password and confirmation password do not match.", username);
@@ -72,7 +84,7 @@ public class UserController {
             log.warn("Failed user creation for {}: Password length is less than 7 characters.", username);
             return ResponseEntity.badRequest().build();
         }
-
+        
         User user = new User();
         user.setUsername(username);
         

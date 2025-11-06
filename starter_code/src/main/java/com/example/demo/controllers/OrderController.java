@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,7 @@ public class OrderController {
     
     
     @PostMapping("/submit/{username}")
+    @PreAuthorize("isAuthenticated() and (#username == authentication.name or hasRole('ROLE_ADMIN'))")
     public ResponseEntity<UserOrder> submit(@PathVariable String username) {
         log.info("Order submission initiated for user: {}", username);
         User user = userRepository.findByUsername(username);
@@ -67,6 +69,7 @@ public class OrderController {
     }
     
     @GetMapping("/history/{username}")
+    @PreAuthorize("isAuthenticated() and (#username == authentication.name or hasRole('ROLE_ADMIN'))")
     public ResponseEntity<List<UserOrder>> getOrdersForUser(@PathVariable String username) {
         log.info("Fetching order history for user: {}", username);
         User user = userRepository.findByUsername(username);

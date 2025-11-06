@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,10 +37,43 @@ public class CartController {
     
     @Autowired
     private ItemRepository itemRepository;
+
+    /**
+     * Helper method for authorization check.
+     * The logged-in user is allowed to execute the request only if:
+     * 1. Their username (authentication.getName()) matches the target username (targetUsername), OR
+     * 2. They possess the "ROLE_ADMIN" role.
+     *
+     * @param targetUsername The username whose cart is to be modified (from the request).
+     * @param authentication The current authentication object of the logged-in user.
+     * @return true if the user is authorized, false otherwise.
+     */
+    private boolean isAuthorized(String targetUsername, Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return false;
+        }
+
+        // 1. Check if the authenticated user is the target user
+        if (authentication.getName().equals(targetUsername)) {
+            return true;
+        }
+
+        // 2. Check if the authenticated user has the ROLE_ADMIN role
+        return authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .anyMatch("ROLE_ADMIN"::equals);
+    }
     
     @PostMapping("/addToCart")
-    public ResponseEntity<Cart> addTocart(@RequestBody ModifyCartRequest request) {
+    public ResponseEntity<Cart> addTocart(@RequestBody ModifyCartRequest request, Authentication authentication) {
         log.info("Received addToCart request for user: {} and item ID: {}", request.getUsername(), request.getItemId());
+
+        // Authorization check
+        if (!isAuthorized(request.getUsername(), authentication)) {
+            log.warn("addToCart failed: User {} not authorized to modify cart for target user {}.", authentication.getName(), request.getUsername());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
         User user = userRepository.findByUsername(request.getUsername());
         if(user == null) {
             log.warn("addToCart failed: User {} not found.", request.getUsername());
@@ -54,13 +89,20 @@ public class CartController {
             .forEach(i -> cart.addItem(item.get()));
         cartRepository.save(cart);
         log.info("Successfully added {} of item {} to cart for user {}. New total: {}", 
-                 request.getQuantity(), request.getItemId(), request.getUsername(), cart.getTotal());
+                  request.getQuantity(), request.getItemId(), request.getUsername(), cart.getTotal());
         return ResponseEntity.ok(cart);
     }
     
     @PostMapping("/removeFromCart")
-    public ResponseEntity<Cart> removeFromcart(@RequestBody ModifyCartRequest request) {
+    public ResponseEntity<Cart> removeFromcart(@RequestBody ModifyCartRequest request, Authentication authentication) {
         log.info("Received removeFromCart request for user: {} and item ID: {}", request.getUsername(), request.getItemId());
+
+        // Authorization check
+        if (!isAuthorized(request.getUsername(), authentication)) {
+            log.warn("removeFromCart failed: User {} not authorized to modify cart for target user {}.", authentication.getName(), request.getUsername());
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
         User user = userRepository.findByUsername(request.getUsername());
         if(user == null) {
             log.warn("removeFromCart failed: User {} not found.", request.getUsername());
@@ -76,7 +118,7 @@ public class CartController {
             .forEach(i -> cart.removeItem(item.get()));
         cartRepository.save(cart);
         log.info("Successfully removed {} of item {} from cart for user {}. New total: {}", 
-                 request.getQuantity(), request.getItemId(), request.getUsername(), cart.getTotal());
+                  request.getQuantity(), request.getItemId(), request.getUsername(), cart.getTotal());
         return ResponseEntity.ok(cart);
     }
         

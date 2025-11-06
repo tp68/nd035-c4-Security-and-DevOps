@@ -88,7 +88,7 @@ public class UserControllerTest {
         assertNotNull(response);
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
-
+ 
     // -------------------------------------------------------------------------
     // TEST: createUser (Happy Path)
     // -------------------------------------------------------------------------
