@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
@@ -25,7 +25,8 @@ public class UserControllerTest {
     private UserController userController;
     private UserRepository userRepo = mock(UserRepository.class);
     private CartRepository cartRepo = mock(CartRepository.class);
-    private BCryptPasswordEncoder encoder = mock(BCryptPasswordEncoder.class);
+    private PasswordEncoder encoder = mock(PasswordEncoder.class);
+    
 
     @BeforeEach
     public void setUp() {
