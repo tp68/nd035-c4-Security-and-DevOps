@@ -37,6 +37,7 @@ public class OrderControllerTest {
     private CartRepository cartRepo = mock(CartRepository.class);
 
     private User testUser;
+    private User emptyCartUser; // New user setup for empty cart test
     private UserOrder mockOrder;
     private Cart initialCart;
 
@@ -61,6 +62,22 @@ public class OrderControllerTest {
         return user;
     }
     
+    // Helper method to create a user with an empty cart
+    private User createEmptyCartUser() {
+        User user = new User();
+        user.setId(2L);
+        user.setUsername("emptyUser");
+
+        Cart cart = new Cart();
+        // Initialize cart's internal state as empty
+        TestUtils.injectObjects(cart, "items", new ArrayList<>());
+        cart.setTotal(BigDecimal.ZERO);
+        TestUtils.injectObjects(cart, "id", 2L); 
+
+        user.setCart(cart);
+        return user;
+    }
+    
     // Helper method to create a mock UserOrder for repository returns
     private UserOrder createMockOrder(User user, Cart cart) {
         UserOrder order = new UserOrder();
@@ -82,11 +99,13 @@ public class OrderControllerTest {
 
         // Setup test data
         testUser = createTestUser();
+        emptyCartUser = createEmptyCartUser(); // Initialize empty cart user
         initialCart = testUser.getCart();
         mockOrder = createMockOrder(testUser, initialCart);
 
         // Common Mock Setup
         when(userRepo.findByUsername("testUser")).thenReturn(testUser);
+        when(userRepo.findByUsername("emptyUser")).thenReturn(emptyCartUser); // Mock empty cart user
         when(userRepo.findByUsername("nonExistentUser")).thenReturn(null);
 
         // Mock saving the generated order (we assume UserOrder.createFromCart works)
@@ -126,6 +145,20 @@ public class OrderControllerTest {
         // Verification 4: Check that the returned order reflects the *initial* cart state
         assertEquals(initialItemCount, returnedOrder.getItems().size());
         assertEquals(initialTotal, returnedOrder.getTotal());
+    }
+    
+    @Test
+    public void submit_empty_cart_fails() {
+        // Execute submit with a user whose cart is initialized to be empty
+        final ResponseEntity<UserOrder> response = orderController.submit("emptyUser");
+
+        // Verify response status is 400 Bad Request
+        assertNotNull(response);
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode(), "Should return 400 Bad Request for empty cart.");
+
+        // Verify no persistence calls were made
+        verify(orderRepo, Mockito.times(0)).save(Mockito.any(UserOrder.class));
+        verify(cartRepo, Mockito.times(0)).save(Mockito.any(Cart.class));
     }
 
     @Test

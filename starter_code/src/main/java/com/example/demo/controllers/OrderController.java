@@ -3,6 +3,8 @@ package com.example.demo.controllers;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,43 +23,59 @@ import com.example.demo.model.persistence.repositories.UserRepository;
 @RestController
 @RequestMapping("/api/order")
 public class OrderController {
+    
+    private static final Logger log = LoggerFactory.getLogger(OrderController.class);
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private OrderRepository orderRepository;
 
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private CartRepository cartRepository;
+    
+    
+    @PostMapping("/submit/{username}")
+    public ResponseEntity<UserOrder> submit(@PathVariable String username) {
+        log.info("Order submission initiated for user: {}", username);
+        User user = userRepository.findByUsername(username);
+        if(user == null) {
+            log.warn("Order submission failed: User {} not found.", username);
+            return ResponseEntity.notFound().build();
+        }
+        
+        Cart cart = user.getCart();
+        
+        if (cart.getItems().isEmpty()) {
+            log.warn("Order submission failed for user {}: Cart is empty.", username);
+            return ResponseEntity.badRequest().build();
+        }
 
-	@Autowired
-	private OrderRepository orderRepository;
-
-	@Autowired
-	private CartRepository cartRepository;
-
-	@PostMapping("/submit/{username}")
-	public ResponseEntity<UserOrder> submit(@PathVariable String username) {
-		User user = userRepository.findByUsername(username);
-		if (user == null) {
-			return ResponseEntity.notFound().build();
-		}
-
-		Cart cart = user.getCart();
-
-		// 1. Create the order from the current cart content
-		UserOrder order = UserOrder.createFromCart(cart);
-		orderRepository.save(order);
-
-		// 2. Clear the user's cart and save it
-		cart.getItems().clear();
-		cart.setTotal(BigDecimal.ZERO);
-		cartRepository.save(cart);
-
-		return ResponseEntity.ok(order);
-	}
-
-	@GetMapping("/history/{username}")
-	public ResponseEntity<List<UserOrder>> getOrdersForUser(@PathVariable String username) {
-		User user = userRepository.findByUsername(username);
-		if (user == null) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(orderRepository.findByUser(user));
-	}
+        // 1. Create the order from the current cart content
+        UserOrder order = UserOrder.createFromCart(cart);
+        orderRepository.save(order);
+        log.info("Order created with ID {} for user {}. Total amount: {}", order.getId(), username, order.getTotal());
+        
+        // 2. Clear the user's cart and save it back to the database
+        cart.getItems().clear();
+        cart.setTotal(BigDecimal.ZERO);
+        cartRepository.save(cart);
+        log.info("Cart successfully cleared and saved for user {}.", username);
+        
+        return ResponseEntity.ok(order);
+    }
+    
+    @GetMapping("/history/{username}")
+    public ResponseEntity<List<UserOrder>> getOrdersForUser(@PathVariable String username) {
+        log.info("Fetching order history for user: {}", username);
+        User user = userRepository.findByUsername(username);
+        if(user == null) {
+            log.warn("Order history fetch failed: User {} not found.", username);
+            return ResponseEntity.notFound().build();
+        }
+        List<UserOrder> orders = orderRepository.findByUser(user);
+        log.info("Found {} orders for user {}.", orders.size(), username);
+        return ResponseEntity.ok(orders);
+    }
 }
