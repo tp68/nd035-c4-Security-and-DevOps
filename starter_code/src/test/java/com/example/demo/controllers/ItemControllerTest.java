@@ -26,6 +26,7 @@ public class ItemControllerTest {
 
     private Item itemA;
     private Item itemB;
+    private Item itemC; 
     private List<Item> itemList;
 
     // Helper method to create a sample item
@@ -47,7 +48,9 @@ public class ItemControllerTest {
         // Setup test data
         itemA = createItem(1L, "Widget A", BigDecimal.valueOf(10.50));
         itemB = createItem(2L, "Widget B", BigDecimal.valueOf(20.00));
-        itemList = Arrays.asList(itemA, itemB);
+        itemC = createItem(3L, "Widget A", BigDecimal.valueOf(10.50)); // Same name as A for list test
+
+        itemList = Arrays.asList(itemA, itemB, itemC);
 
         // Common Mock Setup
         // 1. findAll()
@@ -58,7 +61,11 @@ public class ItemControllerTest {
         when(itemRepo.findById(99L)).thenReturn(Optional.empty());
 
         // 3. findByName(name)
-        when(itemRepo.findByName("Widget A")).thenReturn(Collections.singletonList(itemA));
+        // Mock to return multiple items for "Widget A"
+        when(itemRepo.findByName("Widget A")).thenReturn(Arrays.asList(itemA, itemC)); 
+        // Mock to return a single item for "Widget B" 
+        when(itemRepo.findByName("Widget B")).thenReturn(Collections.singletonList(itemB));
+        // Mock to return empty list for not found
         when(itemRepo.findByName("NonExistent")).thenReturn(Collections.emptyList());
     }
 
@@ -72,7 +79,7 @@ public class ItemControllerTest {
 
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(2, response.getBody().size());
+        assertEquals(3, response.getBody().size());
         assertEquals("Widget A", response.getBody().get(0).getName());
     }
     
@@ -103,13 +110,27 @@ public class ItemControllerTest {
     // -------------------------------------------------------------------------
 
     @Test
-    public void get_items_by_name_happy_path() {
-        final ResponseEntity<List<Item>> response = itemController.getItemsByName("Widget A");
+    public void get_items_by_name_happy_path_single_item() {
+        // Test where only one item is found (using "Widget B")
+        final ResponseEntity<List<Item>> response = itemController.getItemsByName("Widget B");
 
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(1, response.getBody().size());
-        assertEquals("Widget A", response.getBody().get(0).getName());
+        assertEquals("Widget B", response.getBody().get(0).getName());
+    }
+
+    @Test
+    public void get_items_by_name_multiple_items_found() {
+        // Test for finding multiple items with the same name (using "Widget A")
+        final ResponseEntity<List<Item>> response = itemController.getItemsByName("Widget A");
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        // Assert that both items are returned
+        assertEquals(2, response.getBody().size());
+        assertEquals(1L, response.getBody().get(0).getId());
+        assertEquals(3L, response.getBody().get(1).getId());
     }
 
     @Test
