@@ -11,6 +11,9 @@
     <groupId>com.example</groupId>
     <artifactId>ecommerce</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    
+    <packaging>war</packaging>
+    
     <name>ecommerce</name>
     <description>Demo project for Spring Boot</description>
 
@@ -53,10 +56,15 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <!-- 2. Änderung: Scope auf 'provided' setzen, da der externe Server (z.B. Tomcat) 
+             diesen bereitstellt und er nicht in die WAR-Datei gepackt werden soll. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
@@ -94,28 +102,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>           
+            </plugin>            
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>generate-war</id>
-            <packaging>war</packaging>
-
-            <dependencies>
-                <!-- 
-                Überschreibt die spring-boot-starter-tomcat-Abhängigkeit und setzt sie auf 'provided'.
-                Das ist notwendig, da der Servlet-Container (Tomcat) die Abhängigkeit zur Laufzeit
-                bereitstellt und sie nicht in der WAR-Datei enthalten sein darf. 
-                -->
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
-
 </project>
