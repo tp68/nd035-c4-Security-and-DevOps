@@ -1,0 +1,287 @@
+2025-11-07T09:27:21.405+01:00  INFO 12540 --- [main] com.example.demo.ECommerceApplication    : Starting ECommerceApplication using Java 21.0.8 with PID 12540 (C:\dev\udacity\nd035-c4-Security-and-DevOps\tp68\nd035-c4-Security-and-DevOps\starter_code\target\classes started by timop in C:\dev\udacity\nd035-c4-Security-and-DevOps\tp68\nd035-c4-Security-and-DevOps)
+2025-11-07T09:27:21.408+01:00  INFO 12540 --- [main] com.example.demo.ECommerceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-07T09:27:22.184+01:00  INFO 12540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-07T09:27:22.257+01:00  INFO 12540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 4 JPA repository interfaces.
+2025-11-07T09:27:23.523+01:00  INFO 12540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-07T09:27:23.552+01:00  INFO 12540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T09:27:23.553+01:00  INFO 12540 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-11-07T09:27:23.639+01:00  INFO 12540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T09:27:23.640+01:00  INFO 12540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2137 ms
+2025-11-07T09:27:23.689+01:00  INFO 12540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-07T09:27:23.886+01:00  INFO 12540 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bootapp user=SA
+2025-11-07T09:27:23.890+01:00  INFO 12540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-07T09:27:23.904+01:00  INFO 12540 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:bootapp'
+2025-11-07T09:27:24.076+01:00  INFO 12540 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-07T09:27:24.210+01:00  INFO 12540 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-07T09:27:24.304+01:00  INFO 12540 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-07T09:27:24.744+01:00  INFO 12540 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-07T09:27:24.804+01:00  WARN 12540 --- [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-07T09:27:25.734+01:00  INFO 12540 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-07T09:27:25.795+01:00  INFO 12540 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T09:27:26.236+01:00  INFO 12540 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-11-07T09:27:26.428+01:00  WARN 12540 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-07T09:27:26.729+01:00  INFO 12540 --- [main] c.e.d.security.WebSecurityConfiguration  : Configuring security filter chain. Public endpoint: /api/user/create
+2025-11-07T09:27:27.044+01:00  INFO 12540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-07T09:27:27.053+01:00  INFO 12540 --- [main] com.example.demo.ECommerceApplication    : Started ECommerceApplication in 6.201 seconds (process running for 6.634)
+2025-11-07T09:27:27.057+01:00  INFO 12540 --- [main] com.example.demo.ECommerceApplication    : ECommerceApplication started successfully
+2025-11-07T09:29:09.024+01:00  INFO 12540 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-07T09:29:09.025+01:00  INFO 12540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-07T09:29:09.026+01:00  INFO 12540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-07T09:29:09.155+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:09.616+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : Successfully created user with ID 1 and username User1.
+2025-11-07T09:29:22.536+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:22.551+01:00  WARN 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User1
+2025-11-07T09:29:23.821+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:23.824+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User1
+2025-11-07T09:29:25.070+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:25.072+01:00  WARN 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User1
+2025-11-07T09:29:26.089+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:26.091+01:00  WARN 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User1
+2025-11-07T09:29:28.797+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:28.866+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Successfully created user with ID 2 and username User2.
+2025-11-07T09:29:30.879+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:30.882+01:00  WARN 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:31.818+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:31.821+01:00  WARN 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:32.746+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:32.749+01:00  WARN 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:33.584+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:33.586+01:00  WARN 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:35.951+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:35.953+01:00  WARN 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:36.384+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:36.386+01:00  WARN 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:36.932+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T09:29:36.934+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T09:29:39.218+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:39.220+01:00  WARN 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User1
+2025-11-07T09:29:40.096+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T09:29:40.099+01:00  WARN 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User1
+2025-11-07T09:29:52.802+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T09:29:52.873+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: User1
+2025-11-07T09:29:52.916+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.UserDetailsServiceImpl    : User User1 successfully loaded.
+2025-11-07T09:29:52.987+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.JWTAuthenticationFilter   : Successful authentication for user: User1
+2025-11-07T09:29:58.230+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T09:29:58.231+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: User2
+2025-11-07T09:29:58.234+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.UserDetailsServiceImpl    : User User2 successfully loaded.
+2025-11-07T09:29:58.300+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.JWTAuthenticationFilter   : Successful authentication for user: User2
+2025-11-07T09:32:18.671+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:32:18.674+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:32:22.007+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:32:22.009+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:32:23.068+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:32:23.071+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:33:00.181+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempting to find user by ID: 1
+2025-11-07T09:33:00.189+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Successfully retrieved user ID: 1
+2025-11-07T09:33:03.858+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Attempting to find user by ID: 1
+2025-11-07T09:33:03.859+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Successfully retrieved user ID: 1
+2025-11-07T09:33:56.189+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:33:56.192+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:35:09.795+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:35:09.798+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:35:10.765+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:35:10.767+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:36:34.250+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Attempting to find user by ID: 1
+2025-11-07T09:36:34.253+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Successfully retrieved user ID: 1
+2025-11-07T09:36:35.082+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Attempting to find user by ID: 1
+2025-11-07T09:36:35.084+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Successfully retrieved user ID: 1
+2025-11-07T09:36:35.780+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.UserController      : Attempting to find user by ID: 1
+2025-11-07T09:36:35.782+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.UserController      : Successfully retrieved user ID: 1
+2025-11-07T09:36:39.168+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T09:36:39.171+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T09:38:31.350+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Attempting to find user by ID: 3
+2025-11-07T09:38:31.352+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : User with ID 3 not found.
+2025-11-07T09:38:33.466+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempting to find user by ID: 3
+2025-11-07T09:38:33.467+01:00  WARN 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : User with ID 3 not found.
+2025-11-07T09:38:34.389+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempting to find user by ID: 3
+2025-11-07T09:38:34.390+01:00  WARN 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : User with ID 3 not found.
+2025-11-07T09:38:35.197+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Attempting to find user by ID: 3
+2025-11-07T09:38:35.198+01:00  WARN 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : User with ID 3 not found.
+2025-11-07T09:41:35.533+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T09:41:35.560+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 2.99
+2025-11-07T09:41:37.059+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T09:41:37.067+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 5.98
+2025-11-07T09:41:38.016+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T09:41:38.023+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 8.97
+2025-11-07T09:43:29.172+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T09:43:29.172+01:00  WARN 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user User2.
+2025-11-07T09:43:30.997+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T09:43:30.997+01:00  WARN 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user User2.
+2025-11-07T09:43:31.954+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T09:43:31.954+01:00  WARN 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user User2.
+2025-11-07T09:43:40.856+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T09:43:40.856+01:00  WARN 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user User2.
+2025-11-07T09:44:19.287+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.CartController      : Received addToCart request for user: UNKNOWN and item ID: 1
+2025-11-07T09:44:19.287+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user UNKNOWN.
+2025-11-07T09:44:22.306+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : Received addToCart request for user: UNKNOWN and item ID: 1
+2025-11-07T09:44:22.307+01:00  WARN 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user UNKNOWN.
+2025-11-07T09:45:17.968+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Received addToCart request for user: UNKNOWN and item ID: 1
+2025-11-07T09:45:17.968+01:00  WARN 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user UNKNOWN.
+2025-11-07T09:47:18.927+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Order submission initiated for user: User1
+2025-11-07T09:47:18.938+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Order created with ID 1 for user User1. Total amount: 8.97
+2025-11-07T09:47:18.941+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Cart successfully cleared and saved for user User1.
+2025-11-07T09:47:27.511+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Order submission initiated for user: User1
+2025-11-07T09:47:27.514+01:00  WARN 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Order submission failed for user User1: Cart is empty.
+2025-11-07T09:49:43.395+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T09:49:43.407+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Found 1 orders for user User1.
+2025-11-07T09:50:49.460+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T09:50:49.465+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.OrderController     : Found 1 orders for user User1.
+2025-11-07T09:52:30.582+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T09:52:30.591+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Successfully added 5 of item 1 to cart for user User2. New total: 14.95
+2025-11-07T09:54:17.440+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 2
+2025-11-07T09:54:17.448+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : Successfully added 3 of item 2 to cart for user User2. New total: 20.92
+2025-11-07T09:54:58.288+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T09:54:58.291+01:00  WARN 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T09:55:02.062+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T09:55:02.066+01:00  WARN 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T09:55:10.330+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T09:55:10.333+01:00  WARN 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T09:55:56.982+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Fetching order history for user: User2
+2025-11-07T09:55:56.986+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Found 0 orders for user User2.
+2025-11-07T09:56:02.360+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T09:56:02.364+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Found 1 orders for user User1.
+2025-11-07T09:57:54.083+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Order submission initiated for user: User2
+2025-11-07T09:57:54.095+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Order created with ID 2 for user User2. Total amount: 20.92
+2025-11-07T09:57:54.098+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Cart successfully cleared and saved for user User2.
+2025-11-07T09:57:56.977+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Order submission initiated for user: User2
+2025-11-07T09:57:56.981+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Order submission failed for user User2: Cart is empty.
+2025-11-07T09:58:08.103+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.OrderController     : Fetching order history for user: User2
+2025-11-07T09:58:08.107+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.OrderController     : Found 1 orders for user User2.
+2025-11-07T09:58:21.047+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T09:58:21.052+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.demo.controllers.CartController      : Successfully added 5 of item 1 to cart for user User2. New total: 14.95
+2025-11-07T09:58:30.597+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Order submission initiated for user: User2
+2025-11-07T09:58:30.602+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Order created with ID 3 for user User2. Total amount: 14.95
+2025-11-07T09:58:30.604+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.OrderController     : Cart successfully cleared and saved for user User2.
+2025-11-07T09:58:38.150+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Fetching order history for user: User2
+2025-11-07T09:58:38.154+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Found 2 orders for user User2.
+2025-11-07T10:00:09.105+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T10:00:09.108+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T10:00:58.431+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T10:00:58.432+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: UNKNOWN
+2025-11-07T10:00:58.434+01:00 ERROR 12540 --- [http-nio-8080-exec-4] c.e.d.security.UserDetailsServiceImpl    : User with username UNKNOWN not found.
+2025-11-07T10:02:13.981+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T10:02:13.983+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: User1
+2025-11-07T10:02:13.985+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.d.security.UserDetailsServiceImpl    : User User1 successfully loaded.
+2025-11-07T10:02:28.067+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T10:02:28.068+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: User1
+2025-11-07T10:02:28.070+01:00  INFO 12540 --- [http-nio-8080-exec-6] c.e.d.security.UserDetailsServiceImpl    : User User1 successfully loaded.
+2025-11-07T10:02:59.964+01:00  INFO 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T10:02:59.966+01:00  WARN 12540 --- [http-nio-8080-exec-7] c.e.demo.controllers.UserController      : Attempt to create duplicate user: User2
+2025-11-07T10:03:17.650+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T10:03:17.650+01:00  WARN 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : addToCart failed: User User1 not authorized to modify cart for target user User2.
+2025-11-07T10:03:33.086+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T10:03:33.090+01:00  WARN 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T10:03:35.198+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T10:03:35.201+01:00  WARN 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T10:03:44.121+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T10:03:44.124+01:00  WARN 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T10:03:45.672+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T10:03:45.675+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T10:03:48.869+01:00  INFO 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : Attempting to find user by ID: 3
+2025-11-07T10:03:48.871+01:00  WARN 12540 --- [http-nio-8080-exec-5] c.e.demo.controllers.UserController      : User with ID 3 not found.
+2025-11-07T10:03:51.945+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Attempting to find user by ID: 1
+2025-11-07T10:03:51.946+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.UserController      : Successfully retrieved user ID: 1
+2025-11-07T10:03:56.652+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T10:03:56.655+01:00  INFO 12540 --- [http-nio-8080-exec-9] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T10:04:10.972+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T10:04:10.977+01:00  INFO 12540 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 2.99
+2025-11-07T10:04:11.886+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T10:04:11.891+01:00  INFO 12540 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 5.98
+2025-11-07T10:04:15.267+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T10:04:15.272+01:00  INFO 12540 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 8.97
+2025-11-07T10:04:26.255+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Order submission initiated for user: User1
+2025-11-07T10:04:26.262+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Order created with ID 4 for user User1. Total amount: 8.97
+2025-11-07T10:04:26.264+01:00  INFO 12540 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Cart successfully cleared and saved for user User1.
+2025-11-07T10:04:36.637+01:00  INFO 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Order submission initiated for user: User1
+2025-11-07T10:04:36.640+01:00  WARN 12540 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Order submission failed for user User1: Cart is empty.
+2025-11-07T10:04:43.103+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T10:04:43.108+01:00  INFO 12540 --- [http-nio-8080-exec-8] c.e.demo.controllers.OrderController     : Found 2 orders for user User1.
+2025-11-07T10:05:51.739+01:00  INFO 12540 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T10:05:51.741+01:00  INFO 12540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-07T10:05:51.746+01:00  INFO 12540 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-07T10:23:05.330+01:00  INFO 24832 --- [main] com.example.demo.ECommerceApplication    : Starting ECommerceApplication using Java 21.0.8 with PID 24832 (C:\dev\udacity\nd035-c4-Security-and-DevOps\tp68\nd035-c4-Security-and-DevOps\starter_code\target\classes started by timop in C:\dev\udacity\nd035-c4-Security-and-DevOps\tp68\nd035-c4-Security-and-DevOps)
+2025-11-07T10:23:05.333+01:00  INFO 24832 --- [main] com.example.demo.ECommerceApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-11-07T10:23:06.093+01:00  INFO 24832 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-07T10:23:06.174+01:00  INFO 24832 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 4 JPA repository interfaces.
+2025-11-07T10:23:07.437+01:00  INFO 24832 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-07T10:23:07.458+01:00  INFO 24832 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-07T10:23:07.458+01:00  INFO 24832 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-11-07T10:23:07.544+01:00  INFO 24832 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-07T10:23:07.545+01:00  INFO 24832 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2100 ms
+2025-11-07T10:23:07.598+01:00  INFO 24832 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-07T10:23:07.820+01:00  INFO 24832 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:bootapp user=SA
+2025-11-07T10:23:07.825+01:00  INFO 24832 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-07T10:23:07.837+01:00  INFO 24832 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:bootapp'
+2025-11-07T10:23:07.970+01:00  INFO 24832 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-07T10:23:08.109+01:00  INFO 24832 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-11-07T10:23:08.155+01:00  INFO 24832 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-07T10:23:08.541+01:00  INFO 24832 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-07T10:23:08.635+01:00  WARN 24832 --- [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-07T10:23:09.953+01:00  INFO 24832 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-07T10:23:10.014+01:00  INFO 24832 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-07T10:23:10.461+01:00  INFO 24832 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-11-07T10:23:10.685+01:00  WARN 24832 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-07T10:23:10.973+01:00  INFO 24832 --- [main] c.e.d.security.WebSecurityConfiguration  : Configuring security filter chain. Public endpoint: /api/user/create
+2025-11-07T10:23:11.310+01:00  INFO 24832 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-07T10:23:11.318+01:00  INFO 24832 --- [main] com.example.demo.ECommerceApplication    : Started ECommerceApplication in 6.587 seconds (process running for 7.11)
+2025-11-07T10:23:11.323+01:00  INFO 24832 --- [main] com.example.demo.ECommerceApplication    : ECommerceApplication started successfully
+2025-11-07T10:24:04.446+01:00  INFO 24832 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-07T10:24:04.447+01:00  INFO 24832 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-07T10:24:04.449+01:00  INFO 24832 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-11-07T10:24:04.619+01:00  INFO 24832 --- [http-nio-8080-exec-2] c.e.demo.controllers.UserController      : Attempting to create new user: User1
+2025-11-07T10:24:05.086+01:00  INFO 24832 --- [http-nio-8080-exec-2] c.e.demo.controllers.UserController      : Successfully created user with ID 1 and username User1.
+2025-11-07T10:24:08.269+01:00  INFO 24832 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Attempting to create new user: User2
+2025-11-07T10:24:08.339+01:00  INFO 24832 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Successfully created user with ID 2 and username User2.
+2025-11-07T10:24:23.484+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T10:24:23.555+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: User1
+2025-11-07T10:24:23.624+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.d.security.UserDetailsServiceImpl    : User User1 successfully loaded.
+2025-11-07T10:24:23.689+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.d.security.JWTAuthenticationFilter   : Successful authentication for user: User1
+2025-11-07T10:24:26.517+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.d.security.JWTAuthenticationFilter   : Attempting authentication...
+2025-11-07T10:24:26.518+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.d.security.UserDetailsServiceImpl    : Attempting to load user by username: User2
+2025-11-07T10:24:26.521+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.d.security.UserDetailsServiceImpl    : User User2 successfully loaded.
+2025-11-07T10:24:26.585+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.d.security.JWTAuthenticationFilter   : Successful authentication for user: User2
+2025-11-07T10:24:32.199+01:00  INFO 24832 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Attempting to find user by username: User1
+2025-11-07T10:24:32.203+01:00  INFO 24832 --- [http-nio-8080-exec-6] c.e.demo.controllers.UserController      : Successfully retrieved user: User1
+2025-11-07T10:24:38.155+01:00  INFO 24832 --- [http-nio-8080-exec-7] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T10:24:38.194+01:00  INFO 24832 --- [http-nio-8080-exec-7] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 2.99
+2025-11-07T10:24:40.433+01:00  INFO 24832 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T10:24:40.442+01:00  INFO 24832 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 5.98
+2025-11-07T10:24:41.652+01:00  INFO 24832 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Received addToCart request for user: User1 and item ID: 1
+2025-11-07T10:24:41.660+01:00  INFO 24832 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Successfully added 1 of item 1 to cart for user User1. New total: 8.97
+2025-11-07T10:26:22.745+01:00  INFO 24832 --- [http-nio-8080-exec-2] c.e.demo.controllers.CartController      : Received getCart request for user: User1
+2025-11-07T10:27:00.195+01:00  INFO 24832 --- [http-nio-8080-exec-3] c.e.demo.controllers.CartController      : Received getCart request for user: User2
+2025-11-07T10:27:52.344+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.demo.controllers.CartController      : Received getCart request for user: User2
+2025-11-07T10:27:52.345+01:00  WARN 24832 --- [http-nio-8080-exec-4] c.e.demo.controllers.CartController      : getCart failed: User User1 not authorized to view cart for target user User2.
+2025-11-07T10:27:56.210+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : Received getCart request for user: User2
+2025-11-07T10:27:56.210+01:00  WARN 24832 --- [http-nio-8080-exec-5] c.e.demo.controllers.CartController      : getCart failed: User User1 not authorized to view cart for target user User2.
+2025-11-07T10:28:05.357+01:00  INFO 24832 --- [http-nio-8080-exec-6] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 1
+2025-11-07T10:28:05.364+01:00  INFO 24832 --- [http-nio-8080-exec-6] c.e.demo.controllers.CartController      : Successfully added 5 of item 1 to cart for user User2. New total: 14.95
+2025-11-07T10:28:10.507+01:00  INFO 24832 --- [http-nio-8080-exec-7] c.e.demo.controllers.CartController      : Received getCart request for user: User2
+2025-11-07T10:28:19.105+01:00  INFO 24832 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 3
+2025-11-07T10:28:19.109+01:00  WARN 24832 --- [http-nio-8080-exec-8] c.e.demo.controllers.CartController      : addToCart failed: Item ID 3 not found.
+2025-11-07T10:28:22.603+01:00  INFO 24832 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 2
+2025-11-07T10:28:22.611+01:00  INFO 24832 --- [http-nio-8080-exec-9] c.e.demo.controllers.CartController      : Successfully added 3 of item 2 to cart for user User2. New total: 20.92
+2025-11-07T10:28:23.746+01:00  INFO 24832 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : Received addToCart request for user: User2 and item ID: 2
+2025-11-07T10:28:23.757+01:00  INFO 24832 --- [http-nio-8080-exec-10] c.e.demo.controllers.CartController      : Successfully added 3 of item 2 to cart for user User2. New total: 26.89
+2025-11-07T10:28:39.844+01:00  INFO 24832 --- [http-nio-8080-exec-1] c.e.demo.controllers.CartController      : Received getCart request for user: User2
+2025-11-07T10:29:03.993+01:00  INFO 24832 --- [http-nio-8080-exec-2] c.e.demo.controllers.OrderController     : Fetching order history for user: User2
+2025-11-07T10:29:04.002+01:00  INFO 24832 --- [http-nio-8080-exec-2] c.e.demo.controllers.OrderController     : Found 0 orders for user User2.
+2025-11-07T10:29:18.274+01:00  INFO 24832 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Order submission initiated for user: User2
+2025-11-07T10:29:18.289+01:00  INFO 24832 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Order created with ID 1 for user User2. Total amount: 26.89
+2025-11-07T10:29:18.293+01:00  INFO 24832 --- [http-nio-8080-exec-3] c.e.demo.controllers.OrderController     : Cart successfully cleared and saved for user User2.
+2025-11-07T10:29:35.780+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T10:29:35.785+01:00  INFO 24832 --- [http-nio-8080-exec-4] c.e.demo.controllers.OrderController     : Found 0 orders for user User1.
+2025-11-07T10:29:39.077+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.demo.controllers.OrderController     : Fetching order history for user: User2
+2025-11-07T10:29:39.081+01:00  INFO 24832 --- [http-nio-8080-exec-5] c.e.demo.controllers.OrderController     : Found 1 orders for user User2.
+2025-11-07T10:40:48.915+01:00  INFO 24832 --- [http-nio-8080-exec-8] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T10:40:48.919+01:00  INFO 24832 --- [http-nio-8080-exec-8] c.e.demo.controllers.OrderController     : Found 0 orders for user User1.
+2025-11-07T10:40:52.512+01:00  INFO 24832 --- [http-nio-8080-exec-9] c.e.demo.controllers.OrderController     : Fetching order history for user: User2
+2025-11-07T10:40:52.516+01:00  INFO 24832 --- [http-nio-8080-exec-9] c.e.demo.controllers.OrderController     : Found 1 orders for user User2.
+2025-11-07T10:41:48.904+01:00  INFO 24832 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Fetching order history for user: User1
+2025-11-07T10:41:48.909+01:00  INFO 24832 --- [http-nio-8080-exec-10] c.e.demo.controllers.OrderController     : Found 0 orders for user User1.
+2025-11-07T10:42:05.048+01:00  WARN 24832 --- [http-nio-8080-exec-1] e.d.s.JWTAuthenticationVerficationFilter : JWT verification failed for token. Error: The string ']������)]P��������!L��ȉ' doesn't have a valid JSON format.
+2025-11-07T10:42:05.048+01:00  WARN 24832 --- [http-nio-8080-exec-1] e.d.s.JWTAuthenticationVerficationFilter : JWT was present but could not be authenticated. Request to /api/order/history/User1 will be rejected if protected.
+2025-11-07T10:42:43.650+01:00  WARN 24832 --- [http-nio-8080-exec-2] e.d.s.JWTAuthenticationVerficationFilter : JWT verification failed for token. Error: The token was expected to have 3 parts, but got 1.
+2025-11-07T10:42:43.651+01:00  WARN 24832 --- [http-nio-8080-exec-2] e.d.s.JWTAuthenticationVerficationFilter : JWT was present but could not be authenticated. Request to /api/order/history/User1 will be rejected if protected.
+2025-11-07T10:43:14.982+01:00  WARN 24832 --- [http-nio-8080-exec-3] e.d.s.JWTAuthenticationVerficationFilter : JWT verification failed for token. Error: The string ' ' doesn't have a valid JSON format.
+2025-11-07T10:43:14.983+01:00  WARN 24832 --- [http-nio-8080-exec-3] e.d.s.JWTAuthenticationVerficationFilter : JWT was present but could not be authenticated. Request to /api/order/history/User1 will be rejected if protected.
