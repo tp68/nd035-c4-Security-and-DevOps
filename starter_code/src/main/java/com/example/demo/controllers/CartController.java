@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,6 +96,30 @@ public class CartController {
         cartRepository.save(cart);
         log.info("Successfully removed {} of item {} from cart for user {}. New total: {}", 
                   request.getQuantity(), request.getItemId(), request.getUsername(), cart.getTotal());
+        return ResponseEntity.ok(cart);
+    }
+
+
+    @GetMapping("/{username}")
+    public ResponseEntity<Cart> getCart(@PathVariable String username, Authentication authentication) {
+        log.info("Received getCart request for user: {}", username);
+        
+        // Authorization check: Only the authenticated user can view their own cart
+        if (!AuthenticationUtil.isAuthorized(username, authentication)) {
+            log.warn("getCart failed: User {} not authorized to view cart for target user {}.", authentication.getName(), username);
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            log.warn("getCart failed: User {} not found.", username);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+        // The cart is associated with the user
+        Cart cart = user.getCart();
+        
+        log.debug("Successfully retrieved cart for user {}. Item count: {}", username, cart.getItems().size());
         return ResponseEntity.ok(cart);
     }
         

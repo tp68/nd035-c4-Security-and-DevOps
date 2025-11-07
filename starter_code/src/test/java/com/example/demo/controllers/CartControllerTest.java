@@ -43,14 +43,14 @@ public class CartControllerTest {
     private User createTestUser(Long id, String username, String password, Cart cart) {
         User user = new User();
         user.setId(1L);
-        user.setUsername("testUser");
+        user.setUsername(username);
         user.setCart(cart);
         cart.setUser(user);
         return user;
     }
 
     private Cart createCart() {
-        Cart cart = new Cart();        
+        Cart cart = new Cart(); 
         // Initialize cart's internal list for state tracking
         TestUtils.injectObjects(cart, "items", new ArrayList<Item>());
         TestUtils.injectObjects(cart, "total", BigDecimal.ZERO);
@@ -77,8 +77,8 @@ public class CartControllerTest {
             username,
             "password",
             Arrays.stream(roles)
-                  .map(SimpleGrantedAuthority::new)
-                  .collect(Collectors.toList())
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList())
         );
     }
 
@@ -343,4 +343,56 @@ public class CartControllerTest {
         assertNotNull(response);
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
+
+    // --- getCart Tests ---
+
+    @Test
+    public void get_cart_happy_path_self_authorized() {
+        // Arrange: Add item to cart so it's not empty
+        testUser.getCart().addItem(testItem);
+        assertEquals(1, testUser.getCart().getItems().size());
+
+        // Authenticate as the target user ("testUser")
+        Authentication auth = createAuth("testUser");
+        String targetUsername = "testUser";
+
+        // Act
+        final ResponseEntity<Cart> response = cartController.getCart(targetUsername, auth);
+
+        // Assert
+        assertNotNull(response);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals(targetUsername, response.getBody().getUser().getUsername());
+        assertEquals(1, response.getBody().getItems().size());
+    }
+
+    @Test
+    public void get_cart_unauthorized_user_forbidden() {
+        // Arrange: Authenticate as a different user ("otherUser")
+        Authentication unauthorizedAuth = createAuth("otherUser");
+        String targetUsername = "testUser";
+
+        // Act
+        final ResponseEntity<Cart> response = cartController.getCart(targetUsername, unauthorizedAuth);
+
+        // Assert
+        assertNotNull(response);
+        assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
+    }
+
+    @Test
+    public void get_cart_user_not_found() {
+        // Arrange: Authenticate as the non-existent user (to pass the initial auth check)
+        Authentication auth = createAuth("nonExistentUser");
+        String targetUsername = "nonExistentUser";
+
+        // Act
+        final ResponseEntity<Cart> response = cartController.getCart(targetUsername, auth);
+
+        // Assert
+        assertNotNull(response);
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+    
 }
